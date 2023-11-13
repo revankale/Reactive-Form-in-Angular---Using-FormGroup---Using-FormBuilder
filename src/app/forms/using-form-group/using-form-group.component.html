@@ -1,0 +1,56 @@
+<div class="container-fluid mt-3">
+  <div class="row mx-4">
+    <div class="col-6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Sr no</th>
+            <th>name</th>
+            <th>username</th>
+            <th>email</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of userArray;">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.username}}</td>
+            <td>{{item.email}}</td>
+            <td>
+              <button class="btn btn-sm btn-info" (click)="onEdit(item.id)">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-6">
+      <form [formGroup]="userFroms">
+        <div class="row">
+          <div class="col-4">
+            <label for="">Name</label>
+            <input type="text" class="form-control" formControlName="name">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label for="">Username</label>
+            <input type="text" class="form-control" formControlName="username">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <label for="">Email</label>
+            <input type="text" class="form-control" formControlName="email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 mt-2">
+            <button class="btn btn-primary" (click)="onSaveUser()">Save</button>
+            <button class="btn btn-sm btn-danger mx-3" (click)="onReset()">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
