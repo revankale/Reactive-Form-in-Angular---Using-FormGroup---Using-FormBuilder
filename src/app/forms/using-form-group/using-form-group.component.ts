@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class UsingFormGroupComponent implements OnInit {
 
   userFroms: FormGroup = new FormGroup({
     id: new FormControl('0'),
-    name: new FormControl(''),
+    name: new FormControl('', [Validators.required, Validators.minLength(10)]),
     username: new FormControl(''),
     email: new FormControl('')
   })
